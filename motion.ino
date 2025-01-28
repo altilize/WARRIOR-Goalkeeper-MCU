@@ -32,17 +32,11 @@ void holonomic(float vx, float vy, float vz) {
   // } else if (a <= 34) {
   //   vz = LF_PID() * -1;
   // }
-  // vz = LF_PID();
-  // float LF_vy = 0;
-  // LF_vy = LF_PID() / 20;
-  // vy += LF_vy;  //boleh dicoba sii
-  // Serial.println(vz);
-  // --------------- Kita Coba Teori LF(+/-) yang awalnya (+ only) ygy---------------------------
-  // kecepatan_motor1 = (-0.35 * vx) + (0.35 * vy) + (0.25 * vz) + LF_Value;
-  // kecepatan_motor2 = (-0.35 * vx) + (-0.35 * vy) + (0.25 * vz) - LF_Value;
-  // kecepatan_motor3 = (0.35 * vx) + (-0.35 * vy) + (0.25 * vz) + LF_Value;
-  // kecepatan_motor4 = (0.35 * vx) + (0.35 * vy) + (0.25 * vz) - LF_Value;
-  // -------------------------------------------------------------------
+  vz = LF_PID();
+  float LF_vy = 0;
+  LF_vy = LF_PID() / 20;
+  vy += LF_vy;
+
 
   kecepatan_motor1 = (-0.35 * vx) + (0.35 * vy) + (0.25 * vz);
   kecepatan_motor2 = (-0.35 * vx) + (-0.35 * vy) + (0.25 * vz);
