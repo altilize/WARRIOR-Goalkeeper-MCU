@@ -8,6 +8,16 @@
 
   Matiin 5v, cabut port
   Nyalain 5v, colokin port
+
+
+  ------------------------
+        push github
+  -----------------------
+  open in terminal file ini
+  git add -A
+  git commit -m "Pesan commit"
+  git push
+  
 */
 
 // ======== Line Follower ===============
@@ -16,8 +26,7 @@
   Multiplexer 7 - 11  = LF Horizontal
   Multiplexer 12 - 15 = Belum Dipake
 */
-// float weights[] = { 30, 20, 10, 0, -10, -20, -30 };
-float weights[] = { 3, 2, 1, 0, -1, -2, -3 };
+float weights[] = { 30, 20, 10, 0, -10, -20, -30 };
 // int offside = 0;  //0 = onside, 1 = kemajuan, 2 = kemunduran
 //------ LF_PID----------
 int LF_position = 0;
