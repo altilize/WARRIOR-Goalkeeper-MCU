@@ -156,12 +156,6 @@ const int kick = PE11;
 const int charge = PB1;
 int count = 0;
 
-//-------------- VARIABEL SENSOR IR -----------------
-// int IRbola = PB11;
-// int IRmusuh1 = PB14;
-// int IRmusuh2 = PB12;
-// int IRmusuh3 = PE15;
-
 
 //------------- VARIABEL KOMPAS ---------------
 #include <QMC5883LCompass.h>
