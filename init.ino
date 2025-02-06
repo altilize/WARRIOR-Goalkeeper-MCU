@@ -18,7 +18,7 @@ void inisiasiLF() {
   // pinMode(LF_Pins_Vertikal[6], INPUT_PULLDOWN);
   // pinMode(LF_Pins_Vertikal[7], INPUT_PULLDOWN);
 
-// ---------- LF Multiplexer ----------
+  // ---------- LF Multiplexer ----------
   pinMode(LF_INPUT, INPUT_PULLDOWN);
   pinMode(LF_Selektor_0, OUTPUT);
   pinMode(LF_Selektor_1, OUTPUT);
@@ -102,19 +102,10 @@ void initkompas() {
   I2C1->CCR = 225 << 0;                     // check calculation in PDF
   I2C1->TRISE = 46;                         // check PDF again
   I2C1->CR1 |= (1 << 0);                    // Enable I2C
-  compass.init();
-  //compass.setCalibration(838, 2861, -841, 1368, -63, 157);
-  //utama()
-  // compass.setCalibration(2762, 4798, 1783, 3920, 2510, 2697);
-  // compass.setCalibration(-697, 3071, -1297, 1498, -1091, -117);
-  // sudah nol di lap nasional
-  compass.setCalibration(293, 3076, -975, 1665, 1407, 2850);
-  // compass.setCalibration(807, 2791, -782, 1427, -11, 213);
-  //cobaa
-  // compass.setCalibration(657, 2925, -1015, 1537, -1088, -711);
-  // compass.setCalibration(652, 2908, -993, 1511, -1165, -698);
-  // compass.setCalibration(720, 2848, -920, 1445, -1106, -837);
-  // compass.setCalibration(573, 2870, -1791, -512, -1283, 1020);
-
-  compass.setSmoothing(20, true);
+  byte status = mpu.begin();
+  while (status != 0) {
+    Serial.println("Ga Siap");
+  }  // stop everything if could not connect to MPU6050
+  delay(1000);
+  mpu.calcOffsets(true, true);  // gyro and accelero
 }

@@ -3,8 +3,11 @@
     Kalau port ga kebaca 
   -----------------------
   Colokin port
-  ls /dev/ttyACM*
-  sudo usermod -aG dialout $USER
+  ls -l /dev/ttyACM0
+  sudo usermod -a -G dialout $USER
+
+
+  newgrp dialout (opsional)
 
   Matiin 5v, cabut port
   Nyalain 5v, colokin port
@@ -39,7 +42,7 @@ const int LF_Selektor_0 = PE15;
 const int LF_Selektor_1 = PD12;
 const int LF_Selektor_2 = PD10;
 const int LF_Selektor_3 = PD11;
-const int LF_INPUT = PD14;
+const int LF_INPUT = PB1;
 
 volatile int LF_Vertikal[8];
 int LF_Read_Horizontal[5];
@@ -158,14 +161,17 @@ int count = 0;
 
 
 //------------- VARIABEL KOMPAS ---------------
-#include <QMC5883LCompass.h>
-#include <Wire.h>
-QMC5883LCompass compass;
-int yaw;
-int resetyaw = 0;  //11/56/-67(tescobaa2)
-int signSudut = 0;
+#include "Wire.h"
+#include <MPU6050_light.h>
+
+MPU6050 mpu(Wire);
+byte signPosX, signPosY;
+int posX, posY;
+bool resetHeading = false;
 int sudut = 0;
-int baw;
+int signSudut = 0;
+
+int yaw = 0;
 byte negasi;
 #define SWITCH PA0
 unsigned char dataSTM[16];

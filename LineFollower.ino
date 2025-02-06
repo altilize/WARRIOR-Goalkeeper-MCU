@@ -12,58 +12,58 @@ float LF_WeightedAverage() {
   // ---------- READ SENSOR MUX ----------
   LF_Sensor(0);
   delayMicroseconds(20);
-  LF_Vertikal[0] = digitalRead(LF_INPUT);
+  LF_Vertikal[0] = analogRead(LF_INPUT);
 
   LF_Sensor(1);
   delayMicroseconds(20); //10
-  LF_Vertikal[1] = digitalRead(LF_INPUT);
+  LF_Vertikal[1] = analogRead(LF_INPUT);
 
   LF_Sensor(2);
   delayMicroseconds(20);
-  LF_Vertikal[2] = digitalRead(LF_INPUT);
+  LF_Vertikal[2] = analogRead(LF_INPUT);
 
   LF_Sensor(3);
   delayMicroseconds(20);
-  LF_Vertikal[3] = digitalRead(LF_INPUT);
+  LF_Vertikal[3] = analogRead(LF_INPUT);
 
   LF_Sensor(4);
   delayMicroseconds(20);
-  LF_Vertikal[4] = digitalRead(LF_INPUT);
+  LF_Vertikal[4] = analogRead(LF_INPUT);
 
   LF_Sensor(5);
   delayMicroseconds(20);
-  LF_Vertikal[5] = digitalRead(LF_INPUT);
+  LF_Vertikal[5] = analogRead(LF_INPUT);
 
   LF_Sensor(6);
   delayMicroseconds(20);
-  LF_Vertikal[6] = digitalRead(LF_INPUT);
+  LF_Vertikal[6] = analogRead(LF_INPUT);
 
 
-  if (LF_Vertikal[0] == 1) {
+  if (LF_Vertikal[0] >= 150) {
     TotalWeight += weights[0];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[1] == 1) {
+  if (LF_Vertikal[1] >= 150) {
     TotalWeight += weights[1];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[2] == 1) {
+  if (LF_Vertikal[2] >= 150) {
     TotalWeight += weights[2];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[3] == 1) {
+  if (LF_Vertikal[3] >= 150) {
     TotalWeight += weights[3];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[4] == 1) {
+  if (LF_Vertikal[4] >= 150) {
     TotalWeight += weights[4];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[5] == 1) {
+  if (LF_Vertikal[5] >= 150) {
     TotalWeight += weights[5];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[6] == 1) {
+  if (LF_Vertikal[6] >= 150) {
     TotalWeight += weights[6];
     TotalActiveSensor++;
   }

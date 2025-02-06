@@ -1,65 +1,12 @@
 // ================= Baca Kompas ======================
 void runkompas() {
 
-  int a;
-  int baw;
+  mpu.update();
+  yaw = (int)mpu.getAngleZ() % 360 * -1;
+  yaw -= heading;
+  if (yaw < 0) yaw += 360;
+  if (yaw > 180) yaw -= 360;
 
-
-  compass.read();
-  a = compass.getAzimuth();
-
-  // Ensure azimuth is positive
-  if (a < -180) {
-    a = 360 + a;
-  }
-  // Check if button is pressed to reset the yaw
-  if (ButtonPress == 5) {
-    resetyaw = a;
-  }
-
-  // Calculate the yaw relative to the reset yaw
-  baw = a - resetyaw;
-
-  // Normalize the relative yaw to be within -180 to 180 degrees
-  if (baw < -180) {
-    baw += 360;
-  } else if (baw > 180) {
-    baw -= 360;
-  }
-
-  // yaw = 0;
-  
-  // int a;
-  // Read compass values
-  compass.read();
-
-  // Return Azimuth reading
-  yaw = compass.getAzimuth();
-  if(a<180){
-    a=360 + a;
-  }
-  if(ButtonPress == 5){
-
-    resetyaw = a;
-  } 
-  baw = a-resetyaw;
-  if(baw<0){
-    baw = 360 + baw;
-  }
-  yaw = baw;
-  if(yaw>180){
-    yaw = baw-360;
-  }
-
-  sudut = 0;
-  if (sudut <= 0) {
-    signSudut = 1;
-    sudut = 0 * -1;
-  }
-  else {
-    signSudut = 0;
-    sudut = 0;
-  }
 }
 
 /*void pidkompas(){

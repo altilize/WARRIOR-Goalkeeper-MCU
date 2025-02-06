@@ -1,5 +1,5 @@
+//============== MAIN CODE ==============
 
-// ------------ Setup -------------
 void setup() {
   Wire.begin();
   Serial.begin(115200);
@@ -7,7 +7,6 @@ void setup() {
   pinMode(SWITCH, INPUT);
 }
 
-// ----------- Loop -----------------------
 void loop() {
   if (digitalRead(SWITCH) == HIGH) {
     statusbutton = 1;
@@ -25,9 +24,11 @@ void loop() {
 
   // ---------- BNN ( Bagian Ngedebug-Ngedebug ) -----------
   // Debug_LF_Vertikal();
+  Serial.println(yaw);
+
   // Serial.println(Da);
   // Debug_PosXY();
-  Debug_GridXY();
+  // Debug_GridXY();
   // Debug_LF();
   //Debug_LFs();
 }
