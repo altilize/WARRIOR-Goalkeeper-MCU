@@ -39,31 +39,31 @@ float LF_WeightedAverage() {
   LF_Vertikal[6] = analogRead(LF_INPUT);
 
 
-  if (LF_Vertikal[0] >= 150) {
+  if (LF_Vertikal[0] >= 650) {
     TotalWeight += weights[0];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[1] >= 150) {
+  if (LF_Vertikal[1] >= 650) {
     TotalWeight += weights[1];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[2] >= 150) {
+  if (LF_Vertikal[2] >= 650) {
     TotalWeight += weights[2];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[3] >= 150) {
+  if (LF_Vertikal[3] >= 650) {
     TotalWeight += weights[3];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[4] >= 150) {
+  if (LF_Vertikal[4] >= 650) {
     TotalWeight += weights[4];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[5] >= 150) {
+  if (LF_Vertikal[5] >= 650) {
     TotalWeight += weights[5];
     TotalActiveSensor++;
   }
-  if (LF_Vertikal[6] >= 150) {
+  if (LF_Vertikal[6] >= 650) {
     TotalWeight += weights[6];
     TotalActiveSensor++;
   }

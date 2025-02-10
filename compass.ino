@@ -3,10 +3,8 @@ void runkompas() {
 
   mpu.update();
   yaw = (int)mpu.getAngleZ() % 360 * -1;
-  yaw -= heading;
   if (yaw < 0) yaw += 360;
   if (yaw > 180) yaw -= 360;
-
 }
 
 /*void pidkompas(){

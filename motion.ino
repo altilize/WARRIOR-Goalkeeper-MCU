@@ -1,42 +1,19 @@
 // ============= Hitung Holonomic ================
 void holonomic(float vx, float vy, float vz) {
-
-  // // --------- COBA Line Follower --------------
-  // bool LF_ON = LF_Horizontal();
-  // float LF_Value;
-
-  // // -------------- Robot Onside ------------
-  // if (LF_ON == true && offside == 0) {
-  //   LF_Value = LF_PID();
-  // }
-
-  // // ------------- Robot Kemajuan ---------
-  // else if (LF_ON == false && offside == 1) {
-  //   LF_Value = 0;
-  //   vx = 0;
-  //   vy = -1;
-  //   vz = 0;
-  // }
-  // // ------------- Robot kemunduruan ---------
-  // else if (LF_ON == false && offside == 2) {
-  //   LF_Value = 0;
-  //   vx = 0;
-  //   vy = 1;
-  //   vz = 0;
-  // }
-
-  // -------- PID tambah kompas -----------
-  // int a = compass.getAzimuth();
-  // if (a > 34) {
-  //   vz = LF_PID();
-  // } else if (a <= 34) {
-  //   vz = LF_PID() * -1;
-  // }
+// ======== Line Follower ============
   vz = LF_PID();
   float LF_vy = 0;
   LF_vy = LF_PID() / 20;
-  vy += LF_vy;
+  Serial.println(vy); Serial.print("   vz ="); Serial.println(vz);
 
+// ======== KOMPAS ONLY ================
+  // int pindah = 0;
+  // pindah = yaw;
+  // if (pindah >= 150) pindah = 150;
+  // if (pindah <= -150) pindah = -150;
+  // vz = pindah * -1;
+  // Serial.print(yaw); Serial.print("  "); Serial.println(vz);
+  
 
   kecepatan_motor1 = (-0.35 * vx) + (0.35 * vy) + (0.25 * vz);
   kecepatan_motor2 = (-0.35 * vx) + (-0.35 * vy) + (0.25 * vz);

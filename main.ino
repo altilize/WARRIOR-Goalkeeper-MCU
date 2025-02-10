@@ -18,17 +18,15 @@ void loop() {
   }
   runkompas();
   hitungposisi();
-
-  // playauto();
+  play();
 
 
   // ---------- BNN ( Bagian Ngedebug-Ngedebug ) -----------
   // Debug_LF_Vertikal();
-  Serial.println(yaw);
-
+  // Serial.println(yaw);
   // Serial.println(Da);
   // Debug_PosXY();
   // Debug_GridXY();
   // Debug_LF();
-  //Debug_LFs();
+  // Debug_LFs();
 }

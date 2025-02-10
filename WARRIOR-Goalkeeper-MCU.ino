@@ -9,7 +9,7 @@
 
   newgrp dialout (opsional)
 
-  Matiin 5v, cabut port
+  Matiin 5v, cabut port 
   Nyalain 5v, colokin port
 
 
@@ -170,8 +170,8 @@ int posX, posY;
 bool resetHeading = false;
 int sudut = 0;
 int signSudut = 0;
-
 int yaw = 0;
+
 byte negasi;
 #define SWITCH PA0
 unsigned char dataSTM[16];
