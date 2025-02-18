@@ -1,10 +1,20 @@
 // ================= Baca Kompas ======================
 void runkompas() {
-
   mpu.update();
   yaw = (int)mpu.getAngleZ() % 360 * -1;
+  yaw -= heading;
   if (yaw < 0) yaw += 360;
   if (yaw > 180) yaw -= 360;
+
+  sudut = yaw;
+
+  if (sudut <= 0) {
+    signSudut = 1;
+    sudut *= -1;
+  } else {
+    signSudut = 0;
+    sudut = yaw;
+  }
 }
 
 /*void pidkompas(){

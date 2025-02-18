@@ -9,7 +9,7 @@
 
   newgrp dialout (opsional)
 
-  Matiin 5v, cabut port 
+  Matiin 5v, cabut port c
   Nyalain 5v, colokin port
 
 
@@ -23,6 +23,11 @@
   
 */
 
+//------------ Variabel Serial PC ------------------
+unsigned char totalchecksum;
+byte receiveddata[14];
+unsigned char dataSTM[16], totalChecksum;
+
 // ======== Line Follower ===============
 /* 
   Multiplexer 0 - 6   = LF Vertikal
@@ -30,7 +35,6 @@
   Multiplexer 12 - 15 = Belum Dipake
 */
 float weights[] = { 30, 20, 10, 0, -10, -20, -30 };
-// int offside = 0;  //0 = onside, 1 = kemajuan, 2 = kemunduran
 //------ LF_PID----------
 int LF_position = 0;
 int LF_error = 0;
@@ -174,9 +178,6 @@ int yaw = 0;
 
 byte negasi;
 #define SWITCH PA0
-unsigned char dataSTM[16];
-byte receiveddata[14];
-byte totalchecksum;
 
 int encoderHAValue;
 int encoderHBValue;

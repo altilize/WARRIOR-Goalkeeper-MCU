@@ -27,6 +27,21 @@ void Debug_PosXY() {
   Serial.print(Ypos);
   Serial.println();
 }
+void Debug_GridPosXY() {
+  Serial.print("grid X = ");
+  Serial.print(gridX);
+  Serial.print(" ");
+  Serial.print("pos X = ");
+  Serial.print(Xpos);
+  Serial.print(" ");
+  Serial.print("grid Y = ");
+  Serial.print(gridY);
+  Serial.print(" ");
+  Serial.print("pos Y = ");
+  Serial.print(Ypos);
+
+  Serial.println();
+}
 
 void Debug_GridXY() {
   Serial.print("grid X = ");
@@ -34,6 +49,7 @@ void Debug_GridXY() {
   Serial.print(" ");
   Serial.print("grid Y = ");
   Serial.print(gridY);
+
   Serial.println();
 }
 

@@ -1,35 +1,49 @@
-// ============== Deklarasi Value PID ==================
-float KpA = 0.0027,
-      KiA = 0.00001,
-      KdA = 0.00055;
+///////////////////////////////////DEKLARASI////////////////////////////////
+//0,=.00038
+//kp = 0.03
+//ki = 0.01
+//kd = 0.015
+//kp = 0.008
+//ki = 0.0005
+//kd = 0.035
+//new set
+// KpA = 0.02,
+// KiA = 0.004,
+// KdA = 0.035;
+float KpA = 0.1,
+      KiA = 0.05,
+      KdA = 0.055;
 float errorA = 0, PIDvalueA = 0;
 float PA = 0, IA = 0, DA = 0;
 float previousIA = 0, previousErrorA = 0;
 
-float KpB = 0.0067,
-      KiB = 0.00033,
-      KdB = 0.00009;
+float KpB = 0.1,
+      KiB = 0.05,
+      KdB = 0.055;
 float errorB = 0, PIDvalueB = 0;
 float PB = 0, IB = 0, DB = 0;
 float previousIB = 0, previousErrorB = 0;
 
-float KpC = 0.0051,
-      KiC = 0.0033,
-      KdC = 0.00009;
+float KpC = 0.1,
+      KiC = 0.05,
+      KdC = 0.055;
 float errorC = 0, PIDvalueC = 0;
 float PC = 0, IC = 0, DC = 0;
 float previousIC = 0, previousErrorC = 0;
 
-float KpD = 0.0017,
-      KiD = 0.0000145,
-      KdD = 0.00058;
+float KpD = 0.1,
+      KiD = 0.05,
+      KdD = 0.055;
 float errorD = 0, PIDvalueD = 0;
 float PD = 0, ID = 0, DD = 0;
 float previousID = 0, previousErrorD = 0;
-// ===========================================
+
+/////////////////////////////////END DEKLARASI/////////////////////////////////
 
 void pid() {
-  // ------- Motor A ---------------
+  /*//////////////////////////////////////////////////////////
+     MOTOR A
+  *//////////////////////////////////////////////////////////
   errorA = setpoint1 - rpmA;
 
   PA = errorA;
@@ -48,8 +62,9 @@ void pid() {
   previousErrorA = errorA;
   previousIA = IA;
 
-
-  // ------- Motor B ---------------
+  /*////////////////////////////////////////////////////////////
+     MOTOR B
+  *////////////////////////////////////////////////////////////
   errorB = setpoint2 - rpmB;
 
   PB = errorB;
@@ -68,8 +83,9 @@ void pid() {
   previousErrorB = errorB;
   previousIB = IB;
 
-
-  // ------- Motor C ---------------
+  /*/////////////////////////////////////////////////////////////
+     MOTOR C
+  */////////////////////////////////////////////////////////////
   errorC = setpoint3 - rpmC;
 
   PC = errorC;
@@ -88,8 +104,9 @@ void pid() {
   previousErrorC = errorC;
   previousIC = IC;
 
-
-  // ------- Motor D ---------------
+  /*/////////////////////////////////////////////////////////////
+     MOTOR D
+  */////////////////////////////////////////////////////////////
   errorD = setpoint4 - rpmD;
 
   PD = errorD;

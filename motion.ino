@@ -1,19 +1,10 @@
 // ============= Hitung Holonomic ================
 void holonomic(float vx, float vy, float vz) {
 // ======== Line Follower ============
-  vz = LF_PID();
-  float LF_vy = 0;
-  LF_vy = LF_PID() / 20;
-  Serial.println(vy); Serial.print("   vz ="); Serial.println(vz);
-
-// ======== KOMPAS ONLY ================
-  // int pindah = 0;
-  // pindah = yaw;
-  // if (pindah >= 150) pindah = 150;
-  // if (pindah <= -150) pindah = -150;
-  // vz = pindah * -1;
-  // Serial.print(yaw); Serial.print("  "); Serial.println(vz);
-  
+  // vz = LF_PID();
+  // float LF_vy = 0;
+  // LF_vy = LF_PID() / 15;
+  // Serial.println(vy); Serial.print("   vz ="); Serial.println(vz);
 
   kecepatan_motor1 = (-0.35 * vx) + (0.35 * vy) + (0.25 * vz);
   kecepatan_motor2 = (-0.35 * vx) + (-0.35 * vy) + (0.25 * vz);

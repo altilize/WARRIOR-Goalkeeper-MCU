@@ -3,22 +3,11 @@ void inisiasimode() {
   inisiasiencoder();
   inisiasiinterupsi();
   inisiasitimer();
-  //inisiasimpu();
-  init_oled();
   initkompas();
+  init_oled();
   inisiasiLF();
 }
 void inisiasiLF() {
-  // pinMode(LF_Pins_Vertikal[0], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[1], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[2], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[3], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[4], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[5], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[6], INPUT_PULLDOWN);
-  // pinMode(LF_Pins_Vertikal[7], INPUT_PULLDOWN);
-
-  // ---------- LF Multiplexer ----------
   pinMode(LF_INPUT, INPUT_PULLDOWN);
   pinMode(LF_Selektor_0, OUTPUT);
   pinMode(LF_Selektor_1, OUTPUT);
@@ -71,16 +60,8 @@ void inisiasiinterupsi() {
   attachInterrupt(digitalPinToInterrupt(encoderodometry1A), encA, RISING);
   attachInterrupt(digitalPinToInterrupt(encoderodometry2A), encB, RISING);
   attachInterrupt(digitalPinToInterrupt(encoderodometry3A), encC, RISING);
-
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[0]), sensor1_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[1]), sensor2_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[2]), sensor3_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[3]), sensor4_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[4]), sensor5_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[5]), sensor6_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[6]), sensor7_ISR, CHANGE);
-  // attachInterrupt(digitalPinToInterrupt(LF_Pins[7]), sensor8_ISR, CHANGE);
 }
+
 void init_oled() {
   if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3C)) {
     for (;;)
@@ -88,6 +69,7 @@ void init_oled() {
   }
   delay(1);
 }
+
 void initkompas() {
   RCC->APB1ENR |= (1 << 21);                // enable I2C CLOCK
   RCC->AHB1ENR |= (1 << 1);                 // Enable GPIOB CLOCK
@@ -105,7 +87,8 @@ void initkompas() {
   byte status = mpu.begin();
   while (status != 0) {
     Serial.println("Ga Siap");
+    delay(1000);
   }  // stop everything if could not connect to MPU6050
-  delay(1000);
+
   mpu.calcOffsets(true, true);  // gyro and accelero
 }
