@@ -1,9 +1,19 @@
 /*
+  -------------------------
+  |   Setup Tools STM32   | 
+  -------------------------
+  Board Name : STM32F407Vetx
+  Upload Method : SWD
+  USB Support : CDC Generic Serial Supersede U(S)ART
+  U(S)ART Support : Enabled Generic Serial
+
+
   ------------------------
-    Kalau port ga kebaca 
+    Kalau port ga kebaca |
   -----------------------
   Colokin port
-  ls -l /dev/ttyACM0
+  ls -l /dev/ttyACM*
+  sudo chmod 666 /dev/ttyACM0 (tergantung nama port)
   sudo usermod -a -G dialout $USER
 
 
@@ -60,9 +70,6 @@ void LF_Sensor(int port) {
   digitalWrite(LF_Selektor_2, (port >> 2) & 1);
   digitalWrite(LF_Selektor_3, (port >> 3) & 1);
 }
-
-
-
 
 // ========== Pin Motor =================
 #define enableMotor PE7

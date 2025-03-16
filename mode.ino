@@ -59,7 +59,7 @@ void playauto() {
   */
 
   // ------------------------------------------------------
-  speedrobot = 100;//((receiveddata[2] << 8) + receiveddata[3]);
+  speedrobot = ((receiveddata[2] << 8) + receiveddata[3]);
   heading = receiveddata[5];
     // -------------------------------------------------------
 
