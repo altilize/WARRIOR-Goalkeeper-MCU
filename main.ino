@@ -1,6 +1,8 @@
 //============== MAIN CODE ==============
 
 void setup() {
+  Wire.setSDA(PB9);
+  Wire.setSCL(PB8);
   Wire.begin();
   Serial.begin(115200);
   inisiasimode();
@@ -17,12 +19,19 @@ void loop() {
     Pa = 0, Pb = 0, Pc = 0, Pd = 0;
   }
   OledPrintValue();
-  runkompas();
+  //runkompas();
   hitungposisi();
   UART_receive();
   play();
 
   // ---------- BNN ( Bagian Ngedebug-Ngedebug ) -----------
+
+  Serial.print("Lidar 1 = ");
+  Serial.print(lidar[0].read());
+  Serial.print("  Lidar 2 = ");
+  Serial.println(lidar[1].read());
+
+
   // Debug_LF_Vertikal();
   // Serial.println(yaw);
   // Serial.println(Da);

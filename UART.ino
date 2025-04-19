@@ -1,3 +1,25 @@
+// =================== KAMUS SEND DATA ================================ //
+// dataSTM[0] = Awalan (255) untuk kirim
+// dataSTM[1] = Sign Kompas
+// dataSTM[2] = Kompas
+// dataSTM[3] = Keypad
+// dataSTM[4] = belum dipake
+// dataSTM[5] = belum dipake
+// dataSTM[6] = belum dipake
+// dataSTM[7] = belum dipake
+// dataSTM[8] = Grid X
+// dataSTM[9] = Grid Y
+// dataSTM[10] = Sign Pos X
+// dataSTM[11] = Pos X Data pertama
+// dataSTM[12] = Pos X Data Kedua
+// dataSTM[13] = Sign pos Y
+// dataSTM[14] = Pos Y Data Pertama
+// dataSTM[15] = Pos Y Data Kedua
+// ============================================================== //
+
+// ================= KAMUS RECEIVED DATA ======================== //
+// receiveddata[0] = Awalan, 250 buat change grid // 254 buat nerima normal
+// receiveddata[1] =
 void UART_send()
 {
   dataSTM[0] = 255;                       // HEADING
@@ -11,11 +33,11 @@ void UART_send()
   dataSTM[8] = gridX; // GRID X
   dataSTM[9] = gridY;// + 20; // GRID Y
   dataSTM[10] = signPosX;
-  dataSTM[11] = posX >> 8;
-  dataSTM[12] = posX;
+  dataSTM[11] = (posX >> 8) & 0xFF; // coba di AND sama (FF)16 alias (11111111)2
+  dataSTM[12] = posX & 0xFF;
   dataSTM[13] = signPosY;
-  dataSTM[14] = posY >> 8;
-  dataSTM[15] = posY;
+  dataSTM[14] = (posY >> 8) & 0xFF;
+  dataSTM[15] = posY & 0xFF;
   Serial.write(dataSTM, 16);
 }
 

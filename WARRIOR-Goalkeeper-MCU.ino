@@ -38,6 +38,12 @@ unsigned char totalchecksum;
 byte receiveddata[14];
 unsigned char dataSTM[16], totalChecksum;
 
+// ============== Variabel Lidar =================== //
+#include <VL53L1X.h>
+
+const uint8_t xshutPins[2] = { PB12, PB14};
+VL53L1X lidar[2];
+
 // ======== Line Follower ===============
 /* 
   Multiplexer 0 - 6   = LF Vertikal
